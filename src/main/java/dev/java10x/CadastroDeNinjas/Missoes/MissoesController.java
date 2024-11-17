@@ -4,7 +4,7 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController //tudo abaixo e um controller
-@RequestMapping("missoes") //vou comecar a mapear a api
+@RequestMapping("/missoes") //vou comecar a mapear a api
 public class MissoesController  {
 
     //GET - MANDAR UMA REQUISISAO PARA MOSTAR AS MISSSOES
