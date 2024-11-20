@@ -9,8 +9,10 @@ import java.util.Optional;
 public class NinjaService {
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaMapper ninjaMapper, NinjaRepository ninjaRepository) {
+        this.ninjaMapper = ninjaMapper;
         this.ninjaRepository = ninjaRepository;
     }
 
@@ -29,8 +31,10 @@ public class NinjaService {
 
     //Criar um novo ninja
 
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTo){
+        NinjaModel ninja = ninjaMapper.map(ninjaDTo);
+        ninja = ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
     //Deletar um ninja - TEM Q SER UM METODO VOID
@@ -47,8 +51,6 @@ public class NinjaService {
         }
         return null;
     }
-
-
 
 
 
