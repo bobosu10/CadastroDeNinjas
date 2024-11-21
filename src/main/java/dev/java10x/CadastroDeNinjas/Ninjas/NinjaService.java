@@ -26,7 +26,7 @@ public class NinjaService {
                 .collect(Collectors.toList());
     }
 
-    //Listar todos os meus ninjas por ID
+    //Listar ninjas por ID
 
     public NinjaDTO listarNinjasPorID(Long id){
         Optional<NinjaModel> ninjaPorID = ninjaRepository.findById(id);
